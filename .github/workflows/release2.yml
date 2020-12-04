@@ -16,6 +16,6 @@ jobs:
           node-version: "12.x"
       - run: npm init release-it
       - run: npm install @release-it/conventional-changelog --save-dev
-      - run: release-it
+      - run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
