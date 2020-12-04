@@ -1,3 +1,5 @@
+name: Release npm package
+
 on:
   push:
     branches:
@@ -12,9 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
-      - run: npx semantic-release
+      - run: npm init release-it
+      - run: npm install @release-it/conventional-changelog --save-dev
+      - run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
